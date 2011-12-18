@@ -1,5 +1,5 @@
 /**
- * Jarty
+ * Jarty - GaSmarty
  */
 /*
  * The MIT License
@@ -27,8 +27,9 @@
 
 (function () {
 
-var Jarty = window.Jarty = {
-	version: '0.2.1',
+var Jarty = GaSmarty = this.Jarty = this.GaSmarty = {
+	version: '0.2.1', //origin
+	gasmartyVersion : '0.0.1',
 	debug: false,
 	compiler: null,
 	__globals: null,
@@ -1170,23 +1171,6 @@ Jarty.Rules.SpecialBarewords = {
 	"NaN": "NaN"
 };
 
-
-if (typeof jQuery != "undefined") {
-	var cacheKey = "jarty.evaluate.compiled";
-	jQuery.fn.extend({
-		jarty: function (obj, noCache) {
-			if (noCache) {
-				var compiled = Jarty.compile(this.val() || this.html());
-			} else {
-				var compiled = this.data(cacheKey);
-				if (!compiled) {
-					compiled = Jarty.compile(this.val() || this.html());
-					this.data(cacheKey, compiled);
-				}
-			}
-			return compiled(obj);
-		}
-	});
-}
+//delete jqeury plugin
 
 })();
